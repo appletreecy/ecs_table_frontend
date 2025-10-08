@@ -15,6 +15,7 @@ export interface FieldMapping{
     sample_data?: string
     mapped_to_ecs: boolean
     sourcetype?: string
+    human_verified?: boolean
 }
 
 export interface Page {
@@ -28,6 +29,7 @@ export async function fetchMappings(params:{
     search?: string
     sourcetype?: string
     mapped?: boolean | null
+    human_verified?: boolean | null
 }={}): Promise<Page>{
     const res = await axios.get(`${API_BASE}/mappings`, { params })
     return res.data
